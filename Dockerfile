@@ -15,7 +15,7 @@ COPY Gemfile.lock /myapp/Gemfile.lock
 
 # Bundlerの不具合対策
 RUN gem update --system
-RUN gem bundle update --bundler
+RUN gem update bundler
 
 # gemのバージョン管理のため、bundleをインストール
 RUN bundle install
