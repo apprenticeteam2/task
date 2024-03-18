@@ -6,4 +6,3 @@ source "https://rubygems.org"
 gem 'bundler', '~> 2.5', '>= 2.5.6'
 
 gem 'webrick', '~> 1.8', '>= 1.8.1 '
-
