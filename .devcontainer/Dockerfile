@@ -26,3 +26,5 @@ COPY . /myapp
 # 環境変数
 ENV LANG=ja_JP.UTF-8
 ENV TZ=Asia/Tokyo
+
+CMD ["ruby", "./main.rb"]
