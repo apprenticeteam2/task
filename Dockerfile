@@ -3,7 +3,7 @@ WORKDIR /myapp
 # nodejsをインストール
 
 RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - \
-&& apt-get install -y nodejs
+	&& apt-get install -y nodejs
 
 #yarnをインストール
 RUN npm install --global yarn
@@ -27,4 +27,4 @@ COPY . /myapp
 ENV LANG=ja_JP.UTF-8
 ENV TZ=Asia/Tokyo
 
-CMD ["ruby", "./main.rb"]
+CMD ['ruby', './main.rb']

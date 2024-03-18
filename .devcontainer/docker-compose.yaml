@@ -1,12 +1,11 @@
-version: '3.8'
-
 services:
   web:
     build: . # このディレクトリにあるDockerfileをビルドする
+    command: ruby -run -e httpd . -p 8000
     volumes:
       - .:/myapp #ホストの現在のディレクトリをコンテナの/myappディレクトリにマウント
     ports:
-      - "3000:3000" #左側のホスト側のポートは自由に変更可
+      - "8000:8000" #左側のホスト側のポートは自由に変更可
     depends_on:
       - db #dbを起動してからwebを起動する
     environment:
