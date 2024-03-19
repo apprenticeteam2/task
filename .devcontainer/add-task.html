@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<header>
+			<nav>
+				<h1>アプリ名</h1>
+				<ul>
+					<li>追加</li>
+					<li>編集</li>
+					<li>履歴</li>
+				</ul>
+			</nav>
+		</header>
+		<main class="container">
+			<h2>タスク追加</h2>
+			<form action="">
+				<div>
+					<p>期間</p>
+					<input class="form-time" type="time" name="start-time" />
+					<input class="form-time" type="time" name="end-time" />
+				</div>
+				<div>
+					<p>タスク</p>
+					<input class="form-task" type="text" name="start-time" />
+				</div>
+				<div>
+					<p>最近追加したタスク</p>
+					<select name="recent-task" id="recent-task">
+						<option value="タスク1">タスク1</option>
+						<option value="タスク2">タスク2</option>
+						<option value="タスク3">タスク3</option>
+					</select>
+				</div>
+				<input type="submit" value="追加" />
+			</form>
+		</main>
+	</body>
+</html>
