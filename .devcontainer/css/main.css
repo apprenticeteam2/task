@@ -35,7 +35,7 @@
 	padding: 12px;
 	box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 	border-radius: 8px;
-	background-color: #0173e6;
+	background-color: #34a853;
 }
 
 @media (min-width: 670px) {
@@ -59,6 +59,11 @@
 }
 
 .task-name {
+	margin: 0 4px;
+	color: white;
+}
+
+.task-status {
 	margin: 0 4px;
 	color: white;
 }
@@ -100,4 +105,12 @@
 	background: #ffffff;
 	border: 1px solid #bcbdbd;
 	z-index: 5;
+}
+
+.task-success {
+	background-color: #4285f4;
+}
+
+.task-fail {
+	background-color: #ea4335;
 }
