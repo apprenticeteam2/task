@@ -1,0 +1,18 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  background: #DBE6F2;
+}
+
+header {
+  background: #EFF7FF;
+  padding: 16px;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav h1 {
+  text-align: center;
+  margin: 0;
+  font-size: 1.2em;
+}

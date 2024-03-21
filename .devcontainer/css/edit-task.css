@@ -1,0 +1,109 @@
+/* CSSリセットや基本スタイル後に追加 */
+body,
+html {
+  height: 100%;
+  margin: 0;
+  background: #DBE6F2;
+}
+
+header {
+  background: #EFF7FF;
+  padding: 16px;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;/
+}
+
+nav h1 {
+  color: #122339;
+  margin: 0;
+  font-size: 1.2em;
+  flex: 1;
+}
+
+nav ul {
+  color: #122339;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+nav ul li {
+  color: #122339;
+  padding: 8px 16px;
+}
+
+.container {
+  display: flex;
+  background: #F0F9FF;
+  padding: 16px;
+  margin-top: 16px;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  flex-direction: column;
+}
+
+h2 {
+  font-size: 1.4em;
+  margin-bottom: 8px;
+  color: #122339;
+}
+
+p {
+  margin-bottom: 0;
+  color: #122339;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-time,
+.form-task {
+  padding: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+}
+
+#recent-task {
+  padding: 8px;
+  margin-bottom: 16px;
+}
+
+.edit-button,
+.delete-button {
+  padding: 12px 20px;
+  background-color: #FEE69A;
+  color: #122339;
+  border: none;
+  border-radius: 20px;
+  font-size: 1em;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 8px;
+  border: 1px solid #DDD;
+  max-width: 300px;
+}
+
+.delete-button {
+  background-color: #dfddeb
+}
+
+.edit-button:focus {
+  border-color:
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {}
