@@ -99,4 +99,5 @@
 	top: 1px;
 	background: #ffffff;
 	border: 1px solid #bcbdbd;
+	z-index: 5;
 }
