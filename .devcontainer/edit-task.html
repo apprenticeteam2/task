@@ -3,18 +3,41 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
+		<title>Time Task | 編集</title>
 		<link rel="stylesheet" href="css/reset.css" />
 		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/header.css" />
+		<script src="https://kit.fontawesome.com/5ba856e811.js" crossorigin="anonymous"></script>
 	</head>
 	<body>
 		<header>
-			<nav>
-				<h1>アプリ名</h1>
+			<div class="title">
+				<a href="/"><h1>Time Task</h1></a>
+			</div>
+
+			<!-- モバイル用nav menu -->
+			<div class="hamburger-menu" onclick="showSidebar()">
+				<a class="icon-wrapper" href="#">
+					<i class="fa-solid fa-bars"></i>
+				</a>
+			</div>
+				<!-- ハンバーガーメニューを押したら表示 -->
+			<nav class="sidebar">
 				<ul>
-					<li>追加</li>
-					<li>編集</li>
-					<li>履歴</li>
+					<li onclick="hideSidebar()">
+						<a href="#"><i class="fa-solid fa-xmark"></i></a>
+					</li>
+					<li><a href="add-task.html">追加</a></li>
+					<li><a href="edit-task.html">編集</a></li>
+					<li><a href="history.html">履歴</a></li>
+				</ul>
+			</nav>
+			<!-- デスクトップ用nav menu -->
+			<nav class="hide-on-mobile">
+				<ul>
+					<li><a href="add-task.html">追加</a></li>
+					<li><a href="edit-task.html">編集</a></li>
+					<li><a href="history.html">履歴</a></li>
 				</ul>
 			</nav>
 		</header>
