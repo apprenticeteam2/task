@@ -63,6 +63,11 @@
 	color: white;
 }
 
+.task-status {
+	margin: 0 4px;
+	color: white;
+}
+
 .time-range {
 	font-size: 36px;
 }

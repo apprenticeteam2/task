@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="css/style.css" />
 		<link rel="stylesheet" href="css/header.css" />
 		<link rel="stylesheet" href="css/main.css" />
+		<link rel="stylesheet" href="css/history.css" />
 		<script src="https://kit.fontawesome.com/5ba856e811.js" crossorigin="anonymous"></script>
 	</head>
 	<body>
@@ -22,7 +23,7 @@
 					<i class="fa-solid fa-bars"></i>
 				</a>
 			</div>
-				<!-- ハンバーガーメニューを押したら表示 -->
+			<!-- ハンバーガーメニューを押したら表示 -->
 			<nav class="sidebar">
 				<ul>
 					<li onclick="hideSidebar()">
@@ -44,39 +45,66 @@
 		</header>
 		<main class="container">
 			<h2>タスク履歴</h2>
-      <input type="date">
-      <div class="task-list">
-        <div class="task-wrapper">
-          <div class="time-range">
+			<div class="date-picker-wrapper">
+				<input id="date-picker" class="date-picker" type="date" />
+			</div>
+			<div class="tasks">
+				<div class="task">
+					<div class="time-range">
 						<p>
-							<span class="start-time">6:30</span>
+							<time class="start-time">6:30</time>
 							-
-							<span class="end-time">7:30</span>
+							<time class="end-time">7:30</time>
 						</p>
 					</div>
-          <div class="task-name">
-            <p>AtCoder D問題</p>
-          </div>
-          <div class="task-status">
-            <p>成功</p>
-          </div>
-        </div>
-        <div class="task-wrapper">
-          <div class="time-range">
+					<div class="task-footer">
+						<div class="task-name">AtCoder D問題</div>
+						<div class="task-status" role="status">成功</div>
+					</div>
+				</div>
+				<div class="task">
+					<div class="time-range">
 						<p>
-							<span class="start-time">6:30</span>
+							<time class="start-time">6:30</time>
 							-
-							<span class="end-time">7:30</span>
+							<time class="end-time">7:30</time>
 						</p>
 					</div>
-          <div class="task-name">
-            <p>AtCoder D問題</p>
-          </div>
-          <div class="task-status">
-            <p>失敗</p>
-          </div>
-        </div>
-      </div>
+					<div class="task-footer">
+						<div class="task-name">AtCoder D問題</div>
+						<div class="task-status" role="status">成功</div>
+					</div>
+				</div>
+				<div class="task">
+					<div class="time-range">
+						<p>
+							<time class="start-time">6:30</time>
+							-
+							<time class="end-time">7:30</time>
+						</p>
+					</div>
+					<div class="task-footer">
+						<div class="task-name">AtCoder D問題</div>
+						<div class="task-status" role="status">成功</div>
+					</div>
+				</div>
+				<div class="task">
+					<div class="time-range">
+						<p>
+							<time class="start-time">6:30</time>
+							-
+							<time class="end-time">7:30</time>
+						</p>
+					</div>
+					<div class="task-footer">
+						<div class="task-name">AtCoder D問題</div>
+						<div class="task-status" role="status">成功</div>
+					</div>
+				</div>
+			</div>
 		</main>
+
+		<script src="js/main.js"></script>
+		<script src="js/history.js"></script>
 	</body>
 </html>
