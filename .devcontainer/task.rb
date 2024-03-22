@@ -1,5 +1,6 @@
 require 'mysql2'
-
+require 'erb'
+require 'cgi'
 
 
 class TaskManager
@@ -9,8 +10,16 @@ class TaskManager
 	end
 
 	def add_task(user_id,name,start_time,end_time,completed,fine)
-			query = "INSERT INTO tasks (user_id,name,start_time,end_time,completed,fine) VALUES(?, ?, ?, ?, ?, ?)"
-			@client.prepare(query).execute(user_id,name,start_time,end_time,completed,fine)
+
+			# データベースを保存
+				query = "INSERT INTO tasks (user_id,name,start_time,end_time,completed,fine) VALUES(?, ?, ?, ?, ?, ?)"
+				@client.prepare(query).execute(user_id,name,start_time,end_time,completed,fine)
+
+			# 確認メッセージ
+				puts cgi.header
+				puts 'データベースの保存に成功しました。'
+			else
+
 	end
 
     #保存されているタスクを表示します
@@ -51,3 +60,26 @@ end
 
 client = TaskManager.new(host: 'localhost',
 	username: 'myuser', password: 'rootpass', database: 'mydb')
+
+cgi = CGI.new
+params = cgi.params
+
+if cgi.request_method == 'POST'
+
+# フォームデータを取得
+# user_idは後から修正
+	name = cgi ['name']
+	start_time = cgi['start_time']
+	end_time = cgi['end-time']
+	completed = cgi['completed']
+	fine = cgi['fine'].to_i
+	completed = cgi['completed'] == true
+	user_id = 1
+
+	task_manager.add_task(user_id,name,start_time,end_time,completed,fine)
+else
+	# ERBテンプレートを使用してフォームを表示
+  template = ERB.new(File.read("contact_form.erb"))
+  puts cgi.header
+  puts template.result()
+end
