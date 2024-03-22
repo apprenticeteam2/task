@@ -1,7 +1,6 @@
 services:
   web:
     build: . # このディレクトリにあるDockerfileをビルドする
-    command: ruby -run -e httpd . -p 8000
     volumes:
       - .:/myapp #ホストの現在のディレクトリをコンテナの/myappディレクトリにマウント
     ports:
