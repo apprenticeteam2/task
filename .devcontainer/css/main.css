@@ -1,0 +1,121 @@
+.time-wrapper {
+	text-align: center;
+	margin-top: 48px;
+	margin-bottom: 32px;
+}
+
+#time {
+	display: block;
+	font-size: 4rem;
+}
+
+#date {
+	display: block;
+	margin: 8px 0;
+}
+
+.tasks {
+	display: flex;
+	justify-content: flex-start;
+	flex-flow: wrap;
+	width: 100%;
+	padding: 10px;
+}
+
+.task {
+	width: 100%;
+	margin-bottom: 12px;
+	padding: 12px;
+	box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+	border-radius: 8px;
+	background-color: #34a853;
+}
+
+@media (min-width: 670px) {
+	.task {
+		width: 32%;
+		margin-right: 2%;
+	}
+
+	.task:nth-child(3n) {
+		margin-right: 0;
+	}
+}
+
+.task p {
+	color: white;
+	margin-bottom: 10px;
+}
+
+.task time {
+	color: white;
+}
+
+.task-name {
+	margin: 0 4px;
+	color: white;
+}
+
+.task-status {
+	margin: 0 4px;
+	color: white;
+}
+
+.time-range {
+	font-size: 36px;
+}
+
+.task-footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.switch-wrapper .toggle-button {
+	width: 46px;
+	height: 24px;
+	position: relative;
+	border: none;
+	border-radius: 12px;
+	background-color: #bcbdbd;
+	cursor: pointer;
+}
+
+.switch-wrapper .toggle-button::after {
+	content: '';
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	border-radius: 100%;
+	left: 1px;
+	top: 1px;
+	background: #ffffff;
+	border: 1px solid #bcbdbd;
+	z-index: 5;
+	transition: 0.2s;
+}
+
+.switch-wrapper label {
+	display: block;
+}
+
+.switch-wrapper input[type='checkbox'] {
+	display: none;
+}
+
+.switch-wrapper input[type='checkbox']:checked + label .toggle-button {
+	background-color: #55c500;
+}
+
+.switch-wrapper input[type='checkbox']:checked + label .toggle-button::after {
+	border-color: #55c500;
+	transform: translateX(100%);
+}
+
+.task-success {
+	background-color: #4285f4;
+}
+
+.task-fail {
+	background-color: #ea4335;
+}
