@@ -8,20 +8,28 @@ function hideSidebar() {
 	sidebar.style.display = 'none'
 }
 
+let lastTime = ''
+let lastDate = ''
 function showTime() {
 	const now = new Date()
 	const hours = now.getHours()
 	const minutes = ('0' + now.getMinutes()).slice(-2)
-	const time = hours + ':' + minutes
+	const currentTime = hours + ':' + minutes
 
-	document.getElementById('time').innerText = time
+	if (currentTime !== lastTime) {
+		document.getElementById('time').innerText = currentTime
+		lastTime = currentTime
+	}
 
 	const mm = ('0' + (now.getMonth() + 1)).slice(-2)
 	const dd = ('0' + now.getDate()).slice(-2)
 	const day = '日月火水木金土'[now.getDay()]
-	const date = mm + '/' + dd + '(' + day + ')'
+	const currentDate = mm + '/' + dd + '(' + day + ')'
 
-	document.getElementById('date').innerText = date
+	if (currentDate !== lastDate) {
+		document.getElementById('date').innerText = currentDate
+		lastDate = currentDate
+	}
 }
 
 // 1秒ごとにshowTime関数を実行して時刻を更新
