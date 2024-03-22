@@ -1,0 +1,49 @@
+/* CSSリセットや基本スタイル後に追加 */
+p {
+  margin-bottom: 0;
+  color: #122339;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-time,
+.form-task {
+  padding: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+}
+
+#recent-task {
+  padding: 8px;
+  margin-bottom: 16px;
+}
+
+.edit-button,
+.delete-button {
+  padding: 12px 20px;
+  background-color: #FEE69A;
+  color: #122339;
+  border: none;
+  border-radius: 20px;
+  font-size: 1em;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 8px;
+  border: 1px solid #DDD;
+  max-width: 300px;
+}
+
+.delete-button {
+  background-color: #dfddeb
+}
+
+/* .edit-button:focus {
+  border-color:
+} */
+
+/* レスポンシブ対応 */
+@media (min-width: 670px) {}
