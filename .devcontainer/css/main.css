@@ -1,4 +1,3 @@
-
 .time-wrapper {
 	text-align: center;
 	margin-top: 48px;
@@ -70,13 +69,7 @@
 	justify-content: space-between;
 }
 
-.toggle-wrapper {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.toggle-button {
+.switch-wrapper .toggle-button {
 	width: 46px;
 	height: 24px;
 	position: relative;
@@ -86,7 +79,7 @@
 	cursor: pointer;
 }
 
-.toggle-button::after {
+.switch-wrapper .toggle-button::after {
 	content: '';
 	position: absolute;
 	width: 20px;
@@ -97,6 +90,24 @@
 	background: #ffffff;
 	border: 1px solid #bcbdbd;
 	z-index: 5;
+	transition: .2s;
+}
+
+.switch-wrapper label{
+	display: block;
+}
+
+.switch-wrapper input[type='checkbox'] {
+	display: none;
+}
+
+.switch-wrapper input[type='checkbox']:checked + label .toggle-button{
+	background-color: #55c500;
+}
+
+.switch-wrapper input[type='checkbox']:checked + label .toggle-button::after{
+	border-color: #55c500;
+	transform: translateX(100%);
 }
 
 .task-success {
