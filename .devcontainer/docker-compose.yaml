@@ -9,12 +9,15 @@ services:
       - db #dbを起動してからwebを起動する
     environment:
       DATABASE_URL: mysql2://myuser:mypass@db/mydb # 例のデータベースURL
+    networks:
+      - app-net
 
   db:
     image: mysql:5.7
     platform: linux/x86_64
     volumes:
       - db-data:/var/lib/mysql # データベースデータを永続化する
+      - ./task.sql:/tmp/task.sql
     ports:
       -  "3307:3306"
     environment:
@@ -22,6 +25,11 @@ services:
       MYSQL_DATABASE: mydb
       MYSQL_USER: myuser
       MYSQL_PASSWORD: mypass
+    networks:
+      - app-net
 
 volumes:
   db-data: {}
+networks:
+  app-net:
+    driver: bridge
