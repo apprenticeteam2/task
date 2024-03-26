@@ -1,6 +1,7 @@
 require 'mysql2'
 require 'erb'
 require 'cgi'
+require './db_connect'
 # require_relative 'main.rb'
 
 

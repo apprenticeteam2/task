@@ -17,7 +17,7 @@ class Servlet < WEBrick::HTTPServlet::AbstractServlet
       response.status = 200
       response['Content-Type'] = 'text/html'
 			if request.path == '/'
-				task_manager = TaskManager.new('db', 'root', ENV['MYSQL_ROOT_PASSWORD'], ENV['MYSQL_DATABASE'])
+				task_manager = TaskManager.new('localhost', 'root', 'rootpass', 'mydb')
 				task_manager.show_task()
 				puts task_manager.render_erb_template(index.erb)
 			else
@@ -37,7 +37,7 @@ class Servlet < WEBrick::HTTPServlet::AbstractServlet
 		begin
 			case request.path
 			when '/new'
-				task_manager = TaskManager.new('db', 'root', ENV['MYSQL_ROOT_PASSWORD'], ENV['MYSQL_DATABASE'])
+				task_manager = TaskManager.new('localhost', 'root', 'rootpass', 'mydb')
 				h = request.query
 				user_id =h['user_id']
 				name = h['name']
@@ -64,7 +64,7 @@ class Servlet < WEBrick::HTTPServlet::AbstractServlet
   def do_PUT(request, response)
 		case request.path
 		when '/new'
-		task_manager = TaskManager.new('db', 'root', ENV['MYSQL_ROOT_PASSWORD'], ENV['MYSQL_DATABASE'])
+		task_manager = TaskManager.new('localhost', 'root', 'rootpass', 'mydb')
 		h = request.query
 		user_id =h['user_id']
 		name = h['name']
@@ -86,7 +86,7 @@ class Servlet < WEBrick::HTTPServlet::AbstractServlet
   end
 
   def do_DELETE(request, response)
-task_manager = TaskManager.new('db', 'root', ENV['MYSQL_ROOT_PASSWORD'], ENV['MYSQL_DATABASE'])
+task_manager = TaskManager.new('localhost', 'root', 'rootpass', 'mydb')
 		h = request.query
 		name = h['name']
 		user_id = h['user_id']
@@ -127,7 +127,7 @@ task_manager = TaskManager.new('db', 'root', ENV['MYSQL_ROOT_PASSWORD'], ENV['MY
     end
   end
 end
-task_manager = TaskManager.new('db', 'root', 'rootpass', 'mydb')
+task_manager = TaskManager.new('localhost', 'root', 'rootpass', 'mydb')
 
 ruby task_manager.show_task
 server = WEBrick::HTTPServer.new(Port: 8000)

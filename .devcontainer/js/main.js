@@ -1,3 +1,4 @@
+// import {judgeTime} from './time.js';
 function showSidebar() {
 	const sidebar = document.querySelector('.sidebar')
 	sidebar.style.display = 'flex'
@@ -37,3 +38,6 @@ setInterval(showTime, 1000)
 
 // 初回表示時にも時刻を表示
 showTime()
+
+// タスクの成功失敗を表示
+// judgeTime();
