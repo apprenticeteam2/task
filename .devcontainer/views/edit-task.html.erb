@@ -6,18 +6,22 @@
 		<%= render partial: '_header' %>
 		<main class="container">
 			<h2>タスク編集</h2>
-			<form action="">
+			<form action="/api/task/<%= @task["id"] %>" method="post">
 				<div>
 					<p>期間</p>
-					<input class="form-time" type="time" name="start-time" />
-					<input class="form-time" type="time" name="end-time" />
+					<input class="form-time" type="time" name="start_time" value="<%= @task["start_time"].strftime('%H:%M') %>"/>
+					<input class="form-time" type="time" name="end_time" value="<%= @task["end_time"].strftime('%H:%M') %>"/>
 				</div>
 				<div>
 					<p>タスク</p>
-					<input class="form-task" type="text" name="start-time" />
+					<input class="form-task" type="text" name="task_name" value="<%= @task["name"] %>" />
 				</div>
 				<input class="edit-button" type="submit" value="タスクを編集" />
-				<button class="delete-button" type="button">タスクを削除</button>
+				<input type="hidden" name="_method" value="PATCH" />
+			</form>
+			<form action="/api/task/<%= @task["id"] %>" method="post">
+				<input type="hidden" name="_method" value="DELETE" />
+				<input class="delete-button" type="submit" value="タスクを削除">
 			</form>
 		</main>
 

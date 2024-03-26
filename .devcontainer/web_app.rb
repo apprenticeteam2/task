@@ -54,7 +54,8 @@ class WebApp < Grape::API
   end
 
   get '/edit/:id' do
-    @id = params[:id]
+    id = params[:id]
+    @task = $task_manager.find_task(id)
     render('edit-task')
   end
 

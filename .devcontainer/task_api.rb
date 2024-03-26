@@ -2,7 +2,7 @@ require_relative 'task'
 
 class TaskAPI < Grape::API
   format :json
-  
+
   helpers do
     def session
       env['rack.session']
@@ -23,6 +23,14 @@ class TaskAPI < Grape::API
         puts $task_manager.find_user(session[:user_id])
         $task_manager.find_user(session[:user_id])
       end
+    end
+
+    def get_user_id_by_task_id(task_id)
+      $task_manager.find_task(task_id)['user_id']
+    end
+
+    def validate_user!(user_id)
+      error!('Forbidden', 403) unless current_user == user_id.to_i
     end
   end
 
@@ -53,19 +61,30 @@ class TaskAPI < Grape::API
       end
 
       route_param :id do
-        # タスク編集
-        patch do
-          # タスク編集のロジックをここに実装
+        before do
+          user_id = get_user_id_by_task_id(params[:id])
+          validate_user!(user_id)
+        end
+
+        # formではgetかpostしか使えないためメソッドオーバーライド
+        post do
+          task_id = params[:id]
+          case params['_method']
+          when 'PATCH'
+            task_name = params['task_name']
+            start_time = Time.parse(params['start_time'])
+            end_time = Time.parse(params['end_time'])
+            $task_manager.edit_task(task_id, task_name, start_time, end_time)
+            redirect '/', permanent: true
+          when 'DELETE'
+            $task_manager.delete_task(task_id)
+            redirect '/', permanent: true
+          end
         end
 
         # タスク完了
         patch :complete do
           # タスク完了のロジックをここに実装
-        end
-
-        # タスク削除
-        delete do
-          # タスク削除のロジックをここに実装
         end
       end
     end

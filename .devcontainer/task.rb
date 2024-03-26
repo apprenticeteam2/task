@@ -58,11 +58,41 @@ class TaskManager
     puts "タスクの取得に失敗しました: #{e.message}"
   end
 
-  def add_task(user_id, name, start_time, end_time)
-    query = 'INSERT INTO tasks (user_id,name,start_time,end_time) VALUES(?, ?, ?, ?)'
-    @client.prepare(query).execute(user_id, name, start_time, end_time)
+  def add_task(user_id, task_name, start_time, end_time)
+    query = 'INSERT INTO tasks (user_id, name, start_time, end_time) VALUES(?, ?, ?, ?)'
+    @client.prepare(query).execute(user_id, task_name, start_time, end_time)
     puts 'タスクの追加に成功しました。'
   rescue Mysql2::Error => e
     puts "タスクの追加に失敗しました: #{e.message}"
+  end
+
+  def find_task(task_id)
+    query = 'SELECT * FROM tasks WHERE id = ?;'
+    task = @client.prepare(query).execute(task_id).first
+    if task
+      puts "タスク#{task_id}の取得に成功しました"
+    else
+      puts "タスク#{task_id}は見つかりませんでした"
+    end
+    puts task
+    task
+  rescue Mysql2::Error => e
+    puts "タスク#{task_id}の取得に失敗しました: #{e.message}"
+  end
+
+  def edit_task(task_id, task_name, start_time, end_time)
+    query = 'UPDATE tasks SET name = ?, start_time = ?, end_time = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?'
+    @client.prepare(query).execute(task_name, start_time, end_time, task_id)
+    puts "タスク#{task_id}の編集に成功しました。"
+  rescue Mysql2::Error => e
+    puts "タスク#{task_id}の編集に失敗しました: #{e.message}"
+  end
+
+  def delete_task(task_id)
+    query = 'DELETE from tasks WHERE id = ?'
+    @client.prepare(query).execute(task_id)
+    puts "タスク#{task_id}の削除に成功しました。"
+  rescue Mysql2::Error => e
+    puts "タスク#{task_id}の削除に失敗しました: #{e.message}"
   end
 end
