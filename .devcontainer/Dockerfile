@@ -27,4 +27,6 @@ COPY . /myapp
 ENV LANG=ja_JP.UTF-8
 ENV TZ=Asia/Tokyo
 
-CMD ["ruby", "./main.rb"]
+# CMD ["ruby", "./main.rb"]
+# CMD ["rackup"]
+CMD ["rackup", "-o", "0.0.0.0", "-p", "8000"]

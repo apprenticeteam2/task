@@ -1,3 +1,4 @@
+<%# encoding: UTF-8 %>
 <!DOCTYPE html>
 <html lang="ja">
 	<head>
@@ -48,16 +49,17 @@
 				<time id="date">01/01(日)</time>
 			</div>
 			<div class="tasks">
+				<% @tasks && @tasks.each do |task| %>
 				<div class="task">
 					<div class="time-range">
 						<p>
-							<time class="start-time" datetime="06:30">6:30</time>
+							<time class="start-time" datetime="<%= task['start_time'] %>"><%= task['start_time'] %></time>
 							-
-							<time class="end-time" datetime="07:30">7:30</time>
+							<time class="end-time" datetime="<%= task['end_time'] %>"><%= task['end_time'] %></time>
 						</p>
 					</div>
 					<div class="task-footer">
-						<div class="task-name">AtCoder D問題</div>
+						<div class="task-name"><%= task['name'] %></div>
 						<div class="task-status" role="status"></div>
 						<div class="switch-wrapper">
 							<input type="checkbox" id="switch1" />
@@ -67,82 +69,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="task">
-					<div class="time-range">
-						<p>
-							<time class="start-time" datetime="06:30">6:30</time>
-							-
-							<time class="end-time" datetime="07:30">7:30</time>
-						</p>
-					</div>
-					<div class="task-footer">
-						<div class="task-name">AtCoder D問題</div>
-						<div class="task-status" role="status"></div>
-						<div class="switch-wrapper">
-							<input type="checkbox" id="switch2" />
-							<label for="switch2">
-								<div id="toggle" class="toggle-button"></div>
-							</label>
-						</div>
-					</div>
-				</div>
-				<div class="task">
-					<div class="time-range">
-						<p>
-							<time class="start-time" datetime="06:30">6:30</time>
-							-
-							<time class="end-time" datetime="07:30">7:30</time>
-						</p>
-					</div>
-					<div class="task-footer">
-						<div class="task-name">AtCoder D問題</div>
-						<div class="task-status" role="status"></div>
-						<div class="switch-wrapper">
-							<input type="checkbox" id="switch3" />
-							<label for="switch3">
-								<div id="toggle" class="toggle-button"></div>
-							</label>
-						</div>
-					</div>
-				</div>
-				<div class="task">
-					<div class="time-range">
-						<p>
-							<time class="start-time" datetime="06:30">6:30</time>
-							-
-							<time class="end-time" datetime="07:30">7:30</time>
-						</p>
-					</div>
-					<div class="task-footer">
-						<div class="task-name">AtCoder D問題</div>
-						<div class="task-status" role="status"></div>
-						<div class="switch-wrapper">
-							<input type="checkbox" id="switch4" />
-							<label for="switch4">
-								<div id="toggle" class="toggle-button"></div>
-							</label>
-						</div>
-					</div>
-				</div>
-				<div class="task">
-					<div class="time-range">
-						<p>
-							<time class="start-time" datetime="06:30">6:30</time>
-							-
-							<time class="end-time" datetime="07:30">7:30</time>
-						</p>
-					</div>
-					<div class="task-footer">
-						<div class="task-name">AtCoder D問題</div>
-						<div class="task-status" role="status"></div>
-						<div class="switch-wrapper">
-							<input type="checkbox" id="switch5" />
-							<label for="switch5">
-								<div id="toggle" class="toggle-button"></div>
-							</label>
-						</div>
-					</div>
-				</div>
+				<% end %>
 			</div>
 		</main>
 
