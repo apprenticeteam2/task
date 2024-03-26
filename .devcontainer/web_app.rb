@@ -24,7 +24,7 @@ class WebApp < Grape::API
     end
 
     def render(template)
-      path = File.expand_path("../#{template}.erb", __FILE__)
+      path = File.expand_path("../views/#{template}.html.erb", __FILE__)
       ERB.new(File.read(path)).result(binding)
     end
   end
@@ -35,7 +35,6 @@ class WebApp < Grape::API
 
   get '/' do
     @tasks = $task_manager.get_tasks(current_user)
-    puts @tasks
     render('index')
   end
 

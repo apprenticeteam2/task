@@ -43,7 +43,11 @@ class TaskManager
   def get_tasks(user_id)
     query = 'SELECT * FROM tasks WHERE user_id = ?;'
     tasks = @client.prepare(query).execute(user_id)
-    puts 'タスクの取得に成功しました。'
+    if tasks
+      puts 'タスクの取得に成功しました。'
+    else
+      puts 'タスクは見つかりませんでした。'
+    end
     # DATETIME型をSTRINGに変換
     tasks.each do |row|
       row["start_time"] = row["start_time"].strftime('%H:%M')
@@ -61,5 +65,4 @@ class TaskManager
   rescue Mysql2::Error => e
     puts "タスクの追加に失敗しました: #{e.message}"
   end
-
 end

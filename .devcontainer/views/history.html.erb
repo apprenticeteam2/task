@@ -1,3 +1,4 @@
+<%# encoding: UTF-8 %>
 <!DOCTYPE html>
 <html lang="ja">
 	<head>
@@ -12,37 +13,7 @@
 		<script src="https://kit.fontawesome.com/5ba856e811.js" crossorigin="anonymous"></script>
 	</head>
 	<body>
-		<header>
-			<div class="title">
-				<a href="/"><h1>Time Task</h1></a>
-			</div>
-
-			<!-- モバイル用nav menu -->
-			<div class="hamburger-menu" onclick="showSidebar()">
-				<a class="icon-wrapper" href="#">
-					<i class="fa-solid fa-bars"></i>
-				</a>
-			</div>
-			<!-- ハンバーガーメニューを押したら表示 -->
-			<nav class="sidebar">
-				<ul>
-					<li onclick="hideSidebar()">
-						<a href="#"><i class="fa-solid fa-xmark"></i></a>
-					</li>
-					<li><a href="/new">追加</a></li>
-					<li><a href="/edit">編集</a></li>
-					<li><a href="/history">履歴</a></li>
-				</ul>
-			</nav>
-			<!-- デスクトップ用nav menu -->
-			<nav class="hide-on-mobile">
-				<ul>
-					<li><a href="/new">追加</a></li>
-					<li><a href="/edit">編集</a></li>
-					<li><a href="/history">履歴</a></li>
-				</ul>
-			</nav>
-		</header>
+		<%= render '_header' %>
 		<main class="container">
 			<h2>タスク履歴</h2>
 			<div class="date-picker-wrapper">
