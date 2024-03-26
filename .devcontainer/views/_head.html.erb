@@ -1,0 +1,10 @@
+<%# encoding: UTF-8 %>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Time Task<%= defined?(title) && title && " | #{title}" %></title>
+  <% styles && styles.each do |style| %>
+    <link rel="stylesheet" href="/css/<%= style %>.css" />
+  <% end %>
+  <script src="https://kit.fontawesome.com/5ba856e811.js" crossorigin="anonymous"></script>
+</head>

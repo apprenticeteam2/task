@@ -1,18 +1,9 @@
 <%# encoding: UTF-8 %>
 <!DOCTYPE html>
 <html lang="ja">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Time Task</title>
-		<link rel="stylesheet" href="css/reset.css" />
-		<link rel="stylesheet" href="css/global.css" />
-		<link rel="stylesheet" href="css/header.css" />
-		<link rel="stylesheet" href="css/main.css" />
-		<script src="https://kit.fontawesome.com/5ba856e811.js" crossorigin="anonymous"></script>
-	</head>
+	<%= render partial: '_head', locals: { styles: ['reset', 'global', 'header', 'main']} %>
 	<body>
-		<%= render '_header' %>
+		<%= render partial: '_header' %>
 		<main class="container">
 			<div class="time-wrapper">
 				<time id="time">0:00</time>
@@ -21,28 +12,30 @@
 			<div class="tasks">
 				<% @tasks && @tasks.each do |task| %>
 				<div class="task">
-					<div class="time-range">
-						<p>
-							<time class="start-time" datetime="<%= task['start_time'] %>"><%= task['start_time'] %></time>
-							-
-							<time class="end-time" datetime="<%= task['end_time'] %>"><%= task['end_time'] %></time>
-						</p>
-					</div>
-					<div class="task-footer">
-						<div class="task-name"><%= task['name'] %></div>
-						<div class="task-status" role="status"></div>
-						<div class="switch-wrapper">
-							<input type="checkbox" id="switch1" />
-							<label for="switch1">
-								<div id="toggle" class="toggle-button"></div>
-							</label>
+					<a href="/edit/<%= task['id'] %>">
+						<div class="time-range">
+							<p>
+								<time class="start-time" datetime="<%= task['start_time'] %>"><%= task['start_time'] %></time>
+								-
+								<time class="end-time" datetime="<%= task['end_time'] %>"><%= task['end_time'] %></time>
+							</p>
 						</div>
-					</div>
+						<div class="task-footer">
+							<div class="task-name"><%= task['name'] %></div>
+							<div class="task-status" role="status"></div>
+							<div class="switch-wrapper">
+								<input type="checkbox" id="switch1" />
+								<label for="switch1">
+									<div id="toggle" class="toggle-button"></div>
+								</label>
+							</div>
+						</div>
+					</a>
 				</div>
 				<% end %>
 			</div>
 		</main>
 
-		<script src="js/main.js"></script>
+		<script src="/js/main.js"></script>
 	</body>
 </html>

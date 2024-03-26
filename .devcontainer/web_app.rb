@@ -24,8 +24,19 @@ class WebApp < Grape::API
     end
 
     def render(template)
-      path = File.expand_path("../views/#{template}.html.erb", __FILE__)
-      ERB.new(File.read(path)).result(binding)
+      erb_filename, locals = if template.is_a?(Hash)
+        [template[:partial], template.fetch(:locals, {})]
+      else
+        [template, {}]
+      end
+
+      path = File.expand_path("../views/#{erb_filename}.html.erb", __FILE__)
+      erb_template = ERB.new(File.read(path))
+
+      merged_binding = binding
+      locals.each { |key, value| merged_binding.local_variable_set(key, value) }
+      # テンプレートの評価と結果の返却
+      erb_template.result(merged_binding)
     end
   end
 

@@ -1,17 +1,7 @@
 <%# encoding: UTF-8 %>
 <!DOCTYPE html>
 <html lang="ja">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Time Task | 履歴</title>
-		<link rel="stylesheet" href="css/reset.css" />
-		<link rel="stylesheet" href="css/global.css" />
-		<link rel="stylesheet" href="css/header.css" />
-		<link rel="stylesheet" href="css/main.css" />
-		<link rel="stylesheet" href="css/history.css" />
-		<script src="https://kit.fontawesome.com/5ba856e811.js" crossorigin="anonymous"></script>
-	</head>
+	<%= render partial: '_head', locals: { styles: ['reset', 'global', 'header', 'main', 'history']} %>
 	<body>
 		<%= render '_header' %>
 		<main class="container">
@@ -75,7 +65,7 @@
 			</div>
 		</main>
 
-		<script src="js/main.js"></script>
-		<script src="js/history.js"></script>
+		<script src="/js/main.js"></script>
+		<script src="/js/history.js"></script>
 	</body>
 </html>
