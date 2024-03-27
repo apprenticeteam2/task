@@ -52,35 +52,62 @@
 				<time id="date">01/01(日)</time>
 			</div>
 			<% @tasks.each do |task|%>
-			<div class="tasks">
-				<div class="task">
-					<div class="time-range">
-						<p>
-							<time class="start-time" datetime="06:30"><%= task['start_time'] %></time>
-							-
-							<time class="end-time" datetime="07:30"><%= task['end_time'] %></time>
-						</p>
-					</div>
-					<div class="task-footer">
-						<div class="task-name"><%= task['name'] %></div>
-						<div class="task-status" role="status"></div>
-						<%= task['fine'] %>
-						<div class="switch-wrapper">
-							<input type="checkbox" id="switch1" disabled/>
-							<label for="switch1">
-								<div id="toggle" class="toggle-button"></div>
-							</label>
+				<div class="tasks">
+					<div class="task">
+						<div class="time-range">
+							<p>
+								<time class="start-time" datetime="06:30"><%= task['start_time'] %></time>
+								-
+								<time class="end-time" datetime="07:30"><%= task['end_time'] %></time>
+							</p>
 						</div>
-						<div id="modal" class="modal">
-							<div class="modalContent">
-								<span class="closeButton"></span>
-								<p id="modalText">ここにメッセージが表示されます。</p>
+						<div class="task-footer">
+							<div class="task-name"><%= task['name'] %></div>
+							<div class="task-status" role="status"></div>
+							<%= task['fine'] %>
+							<div class="switch-wrapper">
+								<input type="checkbox" id="switch1" disabled/>
+								<label for="switch1">
+									<div id="toggle" class="toggle-button"></div>
+								</label>
 							</div>
-						</div>
+							<div id="modal" class="modal">
+								<div class="modalContent">
+									<span class="closeButton"></span>
+									<p id="modalText">ここにメッセージが表示されます。</p>
+								</div>
+							</div>
 
+						</div>
+					</div>
+					<div class="task">
+						<div class="time-range">
+							<p>
+								<time class="start-time" datetime="06:30"><%= task['start_time'] %></time>
+								-
+								<time class="end-time" datetime="07:30"><%= task['end_time'] %></time>
+							</p>
+						</div>
+						<div class="task-footer">
+							<div class="task-name"><%= task['name'] %></div>
+							<div class="task-status" role="status"></div>
+							<%= task['fine'] %>
+							<div class="switch-wrapper">
+								<input type="checkbox" id="switch1" disabled />
+								<label for="switch1">
+									<div id="toggle" class="toggle-button"></div>
+								</label>
+							</div>
+							<div id="modal" class="modal">
+								<div class="modalContent">
+									<span class="closeButton"></span>
+									<p id="modalText">ここにメッセージが表示されます。</p>
+								</div>
+							</div>
+
+						</div>
 					</div>
 				</div>
-			</div>
 			<% end %>
 		</main>
 

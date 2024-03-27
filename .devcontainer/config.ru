@@ -1,3 +1,4 @@
+# encoding: UTF-8
 require 'rack/session'
 require_relative 'db_config'
 require_relative 'web_app'
@@ -5,7 +6,7 @@ require_relative 'task_api'
 
 use Rack::Static,
   urls: ['/images', '/js', '/css']
-
+  
 use Rack::Session::Cookie,
   key: 'taskapp.session',
   path: '/',

@@ -1,8 +1,9 @@
+# encoding: UTF-8
 require_relative 'task'
 
 class TaskAPI < Grape::API
   format :json
-  
+
   helpers do
     def session
       env['rack.session']

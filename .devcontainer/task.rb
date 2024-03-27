@@ -1,3 +1,4 @@
+# encoding: UTF-8
 require 'mysql2'
 require 'erb'
 require 'cgi'

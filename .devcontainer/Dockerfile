@@ -2,6 +2,9 @@ FROM ruby:3.3.0
 WORKDIR /myapp
 # nodejsをインストール
 
+# 環境変数RUBYOPTにより、外部・内部デフォルトエンコーディングをASCIIからUTFに変更
+ENV RUBYOPT="-Eutf-8:utf-8"
+
 RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - \
 && apt-get install -y nodejs
 
@@ -25,6 +28,9 @@ COPY . /myapp
 
 # 環境変数
 ENV LANG=ja_JP.UTF-8
+ENV LC_ALL=ja_JP.UTF-8
+
+
 ENV TZ=Asia/Tokyo
 
 # CMD ["ruby", "./main.rb"]

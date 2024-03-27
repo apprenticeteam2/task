@@ -1,11 +1,11 @@
-default: &default
-  adapter: mysql2
-  encoding: utf8
-  pool: 5
-  username: myuser
-  password: mypass
-  host: localhost
+# default: &default
+#   adapter: mysql2
+#   encoding: utf8
+#   pool: 5
+#   username: myuser
+#   password: mypass
+#   host: localhost
 
-development:
-  <<: *default
-  database: mydb
+# development:
+#   <<: *default
+#   database: mydb
