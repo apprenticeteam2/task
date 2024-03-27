@@ -1,5 +1,10 @@
 {
 	"files.exclude": {
 		"**/.git": false
-	}
+	},
+	"[ruby]": {
+    "editor.defaultFormatter": "Shopify.ruby-lsp"
+  },
+  "rubyLsp.rubyVersionManager": "rbenv",
+  "rubyLsp.formatter": "auto"
 }
