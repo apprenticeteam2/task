@@ -1,3 +1,15 @@
+header {
+	box-shadow:
+  0px 0px 0.9px rgba(0, 0, 0, 0.031),
+  0px 0px 2px rgba(0, 0, 0, 0.045),
+  0px 0px 3.6px rgba(0, 0, 0, 0.055),
+  0px 0px 5.9px rgba(0, 0, 0, 0.065),
+  0px 0px 9.8px rgba(0, 0, 0, 0.075),
+  0px 0px 17.1px rgba(0, 0, 0, 0.089),
+  0px 0px 37px rgba(0, 0, 0, 0.12)
+;
+}
+
 .time-wrapper {
 	text-align: center;
 	margin-top: 48px;
@@ -22,11 +34,11 @@
 
 .task {
 	width: 100%;
-	margin-bottom: 12px;
+	margin-bottom: 1rem;
 	padding: 12px;
-	box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-	border-radius: 8px;
-	background-color: #34a853;
+	box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+	border-radius: 10px;
+	background-color: var(--color_task_n);
 }
 
 @media (min-width: 670px) {
@@ -41,22 +53,22 @@
 }
 
 .task p {
-	color: white;
-	margin-bottom: 10px;
+	color: var(--color_task_p);
+	margin-bottom: 14px;
 }
 
 .task time {
-	color: white;
+	color: var(--color_task_p);
 }
 
 .task-name {
 	margin: 0 4px;
-	color: white;
+	color: var(--color_task_p);
 }
 
 .task-status {
 	margin: 0 4px;
-	color: white;
+	color: var(--color_task_p);
 }
 
 .time-range {
@@ -75,7 +87,7 @@
 	position: relative;
 	border: none;
 	border-radius: 12px;
-	background-color: #bcbdbd;
+	background-color: var(--color_toggle_bg);
 	cursor: pointer;
 }
 
@@ -88,7 +100,7 @@
 	left: 1px;
 	top: 1px;
 	background: #ffffff;
-	border: 1px solid #bcbdbd;
+	border: 1px solid var(--color_toggle_bg);
 	z-index: 5;
 	transition: .2s;
 }
@@ -106,14 +118,14 @@
 }
 
 .switch-wrapper input[type='checkbox']:checked + label .toggle-button::after{
-	border-color: #55c500;
+	border-color:var(--color_normal);
 	transform: translateX(100%);
 }
 
 .task-success {
-	background-color: #4285f4;
+	background-color: var(--color_success);
 }
 
 .task-fail {
-	background-color: #ea4335;
+	background-color: var(--color_fail);
 }
