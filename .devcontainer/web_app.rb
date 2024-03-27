@@ -24,11 +24,11 @@ class WebApp < Grape::API
     end
 
     def render(template)
-      erb_filename, locals = if template.is_a?(Hash)
-        [template[:partial], template.fetch(:locals, {})]
-      else
-        [template, {}]
-      end
+      erb_filename, locals =  if template.is_a?(Hash)
+                                [template[:partial], template.fetch(:locals, {})]
+                              else
+                                [template, {}]
+                              end
 
       path = File.expand_path("../views/#{erb_filename}.html.erb", __FILE__)
       erb_template = ERB.new(File.read(path))

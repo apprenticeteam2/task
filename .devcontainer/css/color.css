@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+:root {
+  --color: #132739;
+  --color_bg: #DBE6F2;
+  --color_header: #EFF7FF;
+  --color_accent: 	#FDE088;
+  --color_task_p: white;
+  --color_toggle_bg: #bcbdbd;
+  --color_success: #4285f4;
+  --color_fail:#ea4335;
+  --color_normal: #34a853;
+}

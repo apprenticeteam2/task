@@ -14,7 +14,7 @@ class TaskManager
                                  username: username, password: password, database: database)
     puts 'データベースの接続に成功しました。'
   rescue Mysql2::Error => e
-    puts 'データベースの接続に失敗しました。'
+    puts "データベースの接続に失敗しました: #{e.message}"
   end
 
   def add_user
