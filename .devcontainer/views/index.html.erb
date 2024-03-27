@@ -10,7 +10,7 @@
 				<time id="date">01/01(日)</time>
 			</div>
 			<div class="tasks">
-				<% @tasks && @tasks.each do |task| %>
+				<% @tasks && @tasks.each_with_index do |task, idx| %>
 				<div class="task">
 					<a href="/edit/<%= task['id'] %>">
 						<div class="time-range">
@@ -29,6 +29,12 @@
 									<div id="toggle" class="toggle-button"></div>
 								</label>
 							</div>
+							<div id="modal" class="modal">
+								<div class="modalContent">
+									<span class="closeButton"></span>
+									<p id="modalText">ここにメッセージが表示されます。</p>
+								</div>
+							</div>
 						</div>
 					</a>
 				</div>
@@ -37,5 +43,6 @@
 		</main>
 
 		<script src="/js/main.js"></script>
+		<script type='module' src="/js/time.js"></script>
 	</body>
 </html>
