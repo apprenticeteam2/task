@@ -1,3 +1,4 @@
+<%# encoding: UTF-8 %>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -53,12 +54,13 @@
 			</div>
 			<% @tasks.each do |task|%>
 			<div class="tasks">
+				<% @tasks && @tasks.each do |task| %>
 				<div class="task">
 					<div class="time-range">
 						<p>
-							<time class="start-time" datetime="06:30"><%= task['start_time'] %></time>
+							<time class="start-time" datetime="<%= task['start_time'] %>"><%= task['start_time'] %></time>
 							-
-							<time class="end-time" datetime="07:30"><%= task['end_time'] %></time>
+							<time class="end-time" datetime="<%= task['end_time'] %>"><%= task['end_time'] %></time>
 						</p>
 					</div>
 					<div class="task-footer">

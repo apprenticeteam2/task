@@ -44,15 +44,15 @@
 		</header>
 		<main class="container">
 			<h2>タスク追加</h2>
-			<form action="">
+			<form action="/api/task" method="post">
 				<div>
 					<p>期間</p>
-					<input class="form-time" type="time" name="start-time" />
-					<input class="form-time" type="time" name="end-time" />
+					<input class="form-time" type="time" name="start_time" />
+					<input class="form-time" type="time" name="end_time" />
 				</div>
 				<div>
 					<p>タスク</p>
-					<input class="form-task" type="text" name="start-time" />
+					<input class="form-task" type="text" name="name" />
 				</div>
 				<div>
 					<p>最近追加したタスク</p>

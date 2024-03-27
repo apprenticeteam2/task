@@ -4,33 +4,30 @@ services:
     volumes:
       - .:/myapp #ホストの現在のディレクトリをコンテナの/myappディレクトリにマウント
     ports:
-      - "8000:8000" #左側のホスト側のポートは自由に変更可
+      - '8000:8000' # ホストのポート:コンテナのポート
     depends_on:
       - db #dbを起動してからwebを起動する
     environment:
-      DATABASE_URL: mysql2://myuser:mypass@db/mydb # 例のデータベースURL
+      DATABASE_URL: mysql2://myuser:mypass@db/task_app # 例のデータベースURL
+    tty: true # ログに標準出力を表示
+    stdin_open: true # ログに標準出力を表示
     networks:
       - app-net
 
   db:
     image: mysql:8.3.0
     platform: linux/x86_64
-    # db-dataを/mysql/dbに変更
-    restart: always
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci # mysqlの文字コード
     volumes:
-      - ./mysql/data/:/var/lib/mysql # データベースデータを永続化する
-      - ./mysql/conf/my.cnf:/etc/mysql/conf.d/my.cnf
-      - ./mysql/script:/docker-entrypoint-initdb.d
-      # - ./task.sql:/tmp/task.sql
+      - db-data:/var/lib/mysql # データベースデータを永続化する
+      - ./task.sql:/docker-entrypoint-initdb.d/task.sql
     ports:
-      - "3307:3306"
+      - '3307:3306'
     environment:
       MYSQL_ROOT_PASSWORD: rootpass
-      MYSQL_DATABASE: mydb
+      MYSQL_DATABASE: task_app
       MYSQL_USER: myuser
       MYSQL_PASSWORD: mypass
-      # MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-      # MYSQL_HOST: db
     networks:
       - app-net
 

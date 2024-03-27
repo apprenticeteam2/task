@@ -1,7 +1,9 @@
 require 'webrick'
 require 'erb'
 require 'json'
-require_relative 'task.rb'
+require "rack"
+
+
 
 class Servlet < WEBrick::HTTPServlet::AbstractServlet
 
@@ -16,13 +18,7 @@ class Servlet < WEBrick::HTTPServlet::AbstractServlet
     if route_map.key?(request.path)
       response.status = 200
       response['Content-Type'] = 'text/html'
-			if request.path == '/'
-				task_manager = TaskManager.new('localhost', 'root', 'rootpass', 'mydb')
-				task_manager.show_task()
-				puts task_manager.render_erb_template(index.erb)
-			else
-      	response.body = render_erb_template(route_map[request.path])
-			end
+      response.body = render_erb_template(route_map[request.path])
     elsif request.path.match?(%r{^/(css|js)/})
       serve_static_file(request, response)
     end
